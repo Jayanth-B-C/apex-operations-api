@@ -1,3 +1,5 @@
+import os
+
 from django.db import connection
 from django.db.utils import OperationalError
 from django.http import JsonResponse
@@ -58,4 +60,12 @@ def metrics(request):
     return JsonResponse({
         "requests_total": 0,
         "service": "apex-operations-api"
+    })
+
+
+@api_view(['GET'])
+def version(request):
+    return JsonResponse({
+        "service": "apex-operations-api",
+        "version": os.getenv("APP_VERSION", "dev")
     })

@@ -7,4 +7,5 @@ urlpatterns = [
     path('ready/', views.readiness_check),
     path('operations/', views.operations_list),
     path('metrics/', views.metrics),
+    path('version/', views.version),
 ]
